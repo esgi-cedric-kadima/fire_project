@@ -5,8 +5,8 @@
  ***************************************************/
 
 export abstract class Tile{
-    private _x : number;
     private _y : number;
+    private _x : number;
 
     constructor(x: number, y: number) {
         this._x = x;
@@ -19,12 +19,13 @@ export abstract class Tile{
     set x(value: number) {
         this._x = value;
     }
+    
 
-    get private_y(): number {
+    get y(): number {
         return this._y;
     }
 
-    set private_y(value: number) {
+    set y(value: number) {
         this._y = value;
     }
 }

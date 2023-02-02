@@ -1,14 +1,12 @@
 import {Tile} from "./Tile";
-import {Herbe} from "./Herbe";
-import {Eau} from "./Eau";
+
 
 export class Item extends Tile{
     private _affichage : boolean;
-    private _terrainType: Herbe | Eau
+    private _terrainType: any
 
-    // @ts-ignore
-    constructor(x :number, y :number, affichage: boolean, terrainType: Herbe | Eau) {
-        super( x, y);
+    constructor(y :number, x :number, affichage: boolean, terrainType: any) {
+        super(y,x);
         this._affichage = affichage;
         this._terrainType = terrainType
  }
@@ -22,12 +20,12 @@ export class Item extends Tile{
         this._affichage = value;
     }
 
-    get terrainType(): Herbe | Eau {
+    get terrainType(): any {
         return this._terrainType;
     }
 
 
-    set terrainType(value: Herbe | Eau) {
+    set terrainType(value: any) {
         this._terrainType = value;
     }
 }
