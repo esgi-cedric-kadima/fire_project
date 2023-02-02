@@ -18,11 +18,11 @@ export class Field {
             for (let j = 0; j < size; j++) {
                 let value = noise2D(i / smoothness, j / smoothness);
                 if(value < -0.5){
-                    this._tiles.push(new Item(j,i,true,new Terre()))
+                    this._tiles.push(new Item(j,i,new Terre()))
                 }else if (value >= -0.5 && value < 0.5){
-                    this._tiles.push(new Item(j,i,true,new Herbe()))
+                    this._tiles.push(new Item(j,i,new Herbe()))
                 }else{
-                    this._tiles.push(new Item(j,i,true,new Eau()))
+                    this._tiles.push(new Item(j,i,new Eau()))
                 }
             }
         }
