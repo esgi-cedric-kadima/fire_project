@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Item = void 0;
 const Tile_1 = require("./Tile");
 class Item extends Tile_1.Tile {
-    constructor(y, x, affichage, terrainType) {
-        super(y, x);
+    constructor(x, y, affichage, terrainType) {
+        super(x, y);
         this._affichage = affichage;
         this._terrainType = terrainType;
     }

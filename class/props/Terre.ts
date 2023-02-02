@@ -1,11 +1,8 @@
-import {Item} from "../Item";
 
 export class Terre {
     private _ignitable = true;
     private _display = "brown";
-    constructor() {
-       
-    }
+
     get ignitable(): boolean {
         return this._ignitable;
     }

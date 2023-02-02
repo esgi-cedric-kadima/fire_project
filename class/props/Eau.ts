@@ -1,11 +1,8 @@
-import {Item} from "../Item";
 
 export class Eau{
     private _ignitable = false;
     private _display = "blue";
-    constructor() {
-
-    }
+    
     get ignitable(): boolean {
         return this._ignitable;
     }

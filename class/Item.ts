@@ -5,8 +5,8 @@ export class Item extends Tile{
     private _affichage : boolean;
     private _terrainType: any
 
-    constructor(y :number, x :number, affichage: boolean, terrainType: any) {
-        super(y,x);
+    constructor( x :number,y :number, affichage: boolean, terrainType: any) {
+        super(x,y);
         this._affichage = affichage;
         this._terrainType = terrainType
  }

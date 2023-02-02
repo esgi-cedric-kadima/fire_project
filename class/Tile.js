@@ -17,10 +17,10 @@ class Tile {
     set x(value) {
         this._x = value;
     }
-    get private_y() {
+    get y() {
         return this._y;
     }
-    set private_y(value) {
+    set y(value) {
         this._y = value;
     }
 }
