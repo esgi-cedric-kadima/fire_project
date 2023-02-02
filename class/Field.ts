@@ -26,4 +26,6 @@ export class Field {
     set tiles(value: Array<Tile>) {
         this._tiles = value;
     }
+
+    
 }
