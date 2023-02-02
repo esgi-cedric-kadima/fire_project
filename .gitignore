@@ -109,3 +109,4 @@ dist
 .github/
 .idea/
 .parcel-cache/
+*.js
