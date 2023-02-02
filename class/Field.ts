@@ -9,9 +9,10 @@ export class Field {
         //Contruit terrain
         for (let i = 0; i < 10; i++) {
             for (let j = 0; j < 10; j++) {
-                console.log("sonarqubemescouilles");
-                // let item = new Item("herbe", "#", true);
-                // this._tiles.push(new Tile(i,j,false, item));
+                const types = [0,1]
+
+                const type = Math.floor(Math.random() * types.length);
+                this._tiles.push(new Item(i,j,false, type));
             }
         }
     }

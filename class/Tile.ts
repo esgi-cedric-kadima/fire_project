@@ -1,4 +1,10 @@
-export abstract  class Tile{
+/****************************************************
+ *                                                  *
+ *          Abstract Tuile (x,y)                    *
+ *                                                  *
+ ***************************************************/
+
+export abstract class Tile{
     private _x : number;
     private _y : number;
 
