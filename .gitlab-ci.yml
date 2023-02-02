@@ -13,4 +13,5 @@ sonarqube-check:
     - sonar-scanner
   allow_failure: true
   only:
-    - main
+    - main # or the name of your main branch
+    
