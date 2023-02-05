@@ -1,15 +1,16 @@
 image: node:latest
 
 before_script:
+  - npm config set registry http://registry.npmjs.org/
   - npm i
 
 stages:
-  - CodingStandards
-  - Sonar
+  - lint
+  - sonarqube-check
 
 
 lint:
-  stage: CodingStandards
+  stage: lint
   script:
     - npx eslint . --ext .ts
   allow_failure: true
@@ -18,7 +19,7 @@ lint:
 
 
 sonarqube-check:
-  stage: Sonar
+  stage: sonarqube-check
   #image: 
     #name: sonarsource/sonar-scanner-cli:latest
   #  entrypoint: [""]
