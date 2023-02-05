@@ -1,33 +1,32 @@
 import {Tile} from "./Tile";
-import {Herbe} from "./Herbe";
-import {Eau} from "./Eau";
 
+/**
+ * La classe Item hérite de la classe Tile et représente un élément dans le terrain.
+ * Elle contient des informations sur la position (x, y) d'un élément et son type de terrain.
+ */
 export class Item extends Tile{
-    private _affichage : boolean;
-    private _terrainType: Herbe | Eau
+    private _terrainType: any
 
-    // @ts-ignore
-    constructor(x :number, y :number, affichage: boolean, terrainType: Herbe | Eau) {
-        super( x, y);
-        this._affichage = affichage;
+    /**
+     * Le constructeur prend en entrée la position x et y de l'élément ainsi que le type de terrain terrainType.
+     * Il appelle également le constructeur parent Tile pour définir la position.
+     */
+    constructor( x :number,y :number, terrainType: any) {
+        super(x,y);
         this._terrainType = terrainType
- }
-
-
-    get affichage(): boolean {
-        return this._affichage;
     }
 
-    set affichage(value: boolean) {
-        this._affichage = value;
-    }
-
-    get terrainType(): Herbe | Eau {
+    /**
+     * Cette méthode retourne le type de terrain associé à cet élément.
+     */
+    get terrainType(): any {
         return this._terrainType;
     }
 
-
-    set terrainType(value: Herbe | Eau) {
+    /**
+     * Cette méthode définit le type de terrain associé à cet élément en utilisant la valeur value.
+     */
+    set terrainType(value: any) {
         this._terrainType = value;
     }
 }

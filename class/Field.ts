@@ -1,39 +1,43 @@
-import {Tile} from "./Tile";
 import {Item} from "./Item";
+import {Terre} from "./props/Terre";
+import {createNoise2D} from 'simplex-noise';
+import Alea from 'alea';
+import {Herbe} from "./props/Herbe";
+import {Eau} from "./props/Eau";
 
 /**
- * Il s'agit d'une définition de classe en TypeScript pour une classe Field.
- * La classe a un champ privé _tiles pour stocker un tableau de tuiles.
- */
+ * Cette classe représente le terrain de notre simulation.
+ * Elle utilise un bruit de Perlin pour générer la hauteur et déterminer le type de terrain sur chaque case (eau, herbe, terre).
+ * La classe utilise également les classes Item, Terre, Herbe et Eau pour créer des objets de type terrain pour chaque case.
+ * La classe dispose aussi d'un getter tiles qui retourne l'ensemble des tuiles générées pour le terrain.
+ * */
+
 export class Field {
+    private _tiles: Array<any>;
 
-    /**
-     * Elle a un constructeur qui prend deux paramètres width et height et construit un terrain aléatoire en utilisant ces dimensions.
-     * Le terrain est construit en bouclant sur les valeurs width et height et en créant de nouveaux objets Item avec des coordonnées j et i et en les ajoutant au tableau _tiles.
-     */
-    constructor(width: number, height: number) {
+    constructor(size: number) {
+        const smoothness = 20;
         this._tiles = [];
-        //Contruit terrain
-        for (let i = 0; i < width; i++) {
-            for (let j = 0; j < height; j++) {
-                const types = [0, 1]
+        const noise2D = createNoise2D(Alea('randomSeed'));
 
-                const type = Math.floor(Math.random() * types.length);
-                this._tiles.push(new Item(j, i, false, type));
+        // Génération de la hauteur à l'aide de bruit de Perlin
+        for (let i = 0; i < size; i++) {
+            for (let j = 0; j < size; j++) {
+                const value = noise2D(i / smoothness, j / smoothness);
+                if (value < -0.5) {
+                    this._tiles.push(new Item(j, i, new Terre()))
+                } else if (value >= -0.5 && value < 0.5) {
+                    this._tiles.push(new Item(j, i, new Herbe()))
+                } else {
+                    this._tiles.push(new Item(j, i, new Eau()))
+                }
             }
         }
     }
 
-    /**
-     * La classe possède également un getter et un setter pour le champ tiles qui permettent l'accès au tableau privé _tiles.
-     */
-    private _tiles: Array<Tile>;
 
-    get tiles(): Array<Tile> {
+    get tiles() {
         return this._tiles;
     }
-
-    set tiles(value: Array<Tile>) {
-        this._tiles = value;
-    }
 }
+

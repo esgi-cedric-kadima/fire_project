@@ -1,22 +1,19 @@
-/***********************************************************************************************************************
- *                                                                                                                      *
- *     Cette classe est abstraite et ne peut pas être instanciée.                                                       *
- *     Elle est utilisée pour définir les propriétés communes à toutes les classes de tuiles.                           *
- *     La classe a deux champs privés _x et _y pour stocker les coordonnées x et y d'une tuile respectivement.          *
- *     La classe possède également des getters et setters pour x et private_y qui permettent l'accès aux champs privés. *
- *                                                                                                                      *
- ***********************************************************************************************************************/
+/**
+ * Cette classe représente une tuile générique avec des coordonnées X et Y.
+ * Elle est déclarée comme abstraite et peut être étendue pour créer des tuiles spécifiques.
+ * Les propriétés X et Y sont privées et peuvent être obtenues et définies via les méthodes get et set.
+ */
+export abstract class Tile{
+    /** La propriété x représente la coordonnée x de la tuile. */
+    private _y : number;
+    /** La propriété y représente la coordonnée y de la tuile. */
+    private _x : number;
 
-Il s'agit d'une définition de classe en TypeScript pour une classe Tile.                                         *
-export abstract class Tile {
-    private _x: number;
-    private _y: number;
-
+    /** Le constructeur prend en entrée la position x et y de la tuile. */
     constructor(x: number, y: number) {
         this._x = x;
         this._y = y;
     }
-
     get x(): number {
         return this._x;
     }
@@ -24,12 +21,13 @@ export abstract class Tile {
     set x(value: number) {
         this._x = value;
     }
+    
 
-    get private_y(): number {
+    get y(): number {
         return this._y;
     }
 
-    set private_y(value: number) {
+    set y(value: number) {
         this._y = value;
     }
 }
