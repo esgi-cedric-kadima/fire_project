@@ -6,14 +6,25 @@ before_script:
 
 stages:
   - lint
+  - mocka
   - sonarqube-check
 
+
+
+mocka:
+  stage: mocka
+  script:
+    - npm run test
+  allow_failure: false
+  only:
+    - devGuilhem
+    - main
 
 lint:
   stage: lint
   script:
     - npx eslint . --ext .ts
-  allow_failure: true
+  allow_failure: false
   only:
     - devGuilhem
     - main
