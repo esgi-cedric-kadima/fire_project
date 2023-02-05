@@ -11,7 +11,7 @@ export class Field {
     constructor(size: number) {
         const smoothness = 20;
         this._tiles = [];
-        const noise2D = createNoise2D(Alea(Math.random()));
+        const noise2D = createNoise2D(Alea('randomSeed'));
 
         // Génération de la hauteur à l'aide de bruit de Perlin
         for (let i = 0; i < size; i++) {
