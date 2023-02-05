@@ -6,21 +6,22 @@ const field = new Field(size);
 console.log(field)
 
 //Création de la table
-let table = document.createElement("table");
+const table = document.createElement("table");
 for (let i = 0; i < size; i++) {
-  let row = document.createElement("tr");
+  const row = document.createElement("tr");
   for (let j = 0; j < size; j++) {
-    let cell = document.createElement("td");    
+    const cell = document.createElement("td");    
     row.appendChild(cell);
   }
   table.appendChild(row);
 }
 //Ajout de notre affichage
 field.tiles.forEach((tile)=>{ 
-    let cellule = table.rows[tile.x].cells[tile.y];
+    const cellule = table.rows[tile.x].cells[tile.y];
     cellule.style.backgroundColor = tile.terrainType.display;
     //Pour pouvoir foutre le feu où on veut
-    cellule.addEventListener('click', (e)=>{
+    //Ajouter l'event que sur les cellules combustibles
+    cellule.addEventListener('click', ()=>{
         cellule.style.backgroundColor = "red";
         console.log("x:"+tile.x + " y :" + tile.y);
     });

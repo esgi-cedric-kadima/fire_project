@@ -1,4 +1,24 @@
+image: node:latest
+
+before_script:
+  - npm i
+
+stages:
+  - CodingStandards
+  - Sonar
+
+
+lint:
+  stage: CodingStandards
+  script:
+    - npx eslint . --ext .ts
+  allow_failure: true
+  only:
+    - main
+
+
 sonarqube-check:
+  stage: Sonar
   image: 
     name: sonarsource/sonar-scanner-cli:latest
     entrypoint: [""]
