@@ -9,7 +9,8 @@
     "build": "parcel build",
     "dev": "npm test && npx tsc && npm run build  && npm run start",
     "lint": "eslint . --ext .ts",
-    "sonar-scanner": "sonar-scanner"
+    "sonar-scanner": "sonar-scanner",
+    "docsify": "docsify serve docs"
   },
   "keywords": [],
   "author": "",
