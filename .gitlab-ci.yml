@@ -19,6 +19,7 @@ mocka:
   only:
     - devGuilhem
     - main
+    - tempMajGit
 
 lint:
   stage: lint
@@ -28,6 +29,7 @@ lint:
   only:
     - devGuilhem
     - main
+    - tempMajGit
 
 
 sonarqube-check:
@@ -46,3 +48,4 @@ sonarqube-check:
   only:
     - main # or the name of your main branch
     - devGuilhem
+    - tempMajGit
