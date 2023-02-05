@@ -16,6 +16,7 @@
   "dependencies": {
     "alea": "^1.0.1",
     "simplex-noise": "^4.0.1",
+    "sonarqube-scanner": "^3.0.0",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
